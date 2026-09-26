@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Browse Bikes - GoBikes</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <h1>Available Bikes</h1>
+
+    <% if (bikes.length === 0) { %>
+
+        <p>No bikes available at the moment.</p>
+
+    <% } else { %>
+
+        <% bikes.forEach(bike => { %>
+
+            <div>
+                <h2><%= bike.name %></h2>
+
+                <p>Brand: <%= bike.brand %></p>
+
+                <p>Type: <%= bike.type %></p>
+
+                <p>₹<%= bike.pricePerDay %> / day</p>
+
+                <p><%= bike.description %></p>
+            </div>
+
+            <hr>
+
+        <% }) %>
+
+    <% } %>
+
+</body>
+</html>

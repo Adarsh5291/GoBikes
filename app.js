@@ -1,6 +1,8 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
+const errorHandler = require("./middleware/errorHandler");
+const bikeRoutes = require("./routes/bikeRoutes");
 
 dotenv.config();
 
@@ -18,6 +20,9 @@ app.get("/", (req, res) => {
     res.render("home");
 });
 
+app.use("/bikes", bikeRoutes);
+
+app.use(errorHandler);
 
 app.listen(PORT, () => {
     console.log(`GoBikes server running on http://localhost:${PORT}`);
