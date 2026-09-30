@@ -17,6 +17,17 @@ const getAllBikes = async (req, res) => {
     });
 };
 
+const getBikeDetails = async (req, res) => {
+    const bike = await Bike.findById(req.params.id);
+
+    if (!bike) {
+        return res.status(404).send("Bike not found");
+    }
+
+    res.render("bikeDetails", { bike });
+};
+
 module.exports = {
-    getAllBikes
+    getAllBikes,
+    getBikeDetails
 };

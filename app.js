@@ -25,5 +25,5 @@ app.use("/bikes", bikeRoutes);
 app.use(errorHandler);
 
 app.listen(PORT, () => {
-    console.log(`GoBikes server running on http://localhost:${PORT}`);
+    console.log(`Rathika server running on http://localhost:${PORT}`);
 });

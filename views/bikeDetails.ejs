@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title><%= bike.name %> - Rathika</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <h1><%= bike.name %></h1>
+
+    <p>Brand: <%= bike.brand %></p>
+
+    <p>Type: <%= bike.type %></p>
+
+    <p>₹<%= bike.pricePerDay %> / day</p>
+
+    <p><%= bike.description %></p>
+
+    <h2>Specifications</h2>
+
+    <p>Engine: <%= bike.specifications.engine %></p>
+
+    <p>Mileage: <%= bike.specifications.mileage %></p>
+
+    <p>Transmission: <%= bike.specifications.transmission %></p>
+
+    <br>
+
+    <a href="/bikes">← Back to Bikes</a>
+
+</body>
+</html>
