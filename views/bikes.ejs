@@ -12,9 +12,21 @@
 
     <h1>Available Bikes</h1>
 
+    <div>
+        <a href="/bikes">All</a>
+        <a href="/bikes?type=Sports">Sports</a>
+        <a href="/bikes?type=Classic">Classic</a>
+        <a href="/bikes?type=Cruiser">Cruiser</a>
+        <a href="/bikes?type=Adventure">Adventure</a>
+        <a href="/bikes?type=Scooter">Scooter</a>
+        <a href="/bikes?type=Other">Other</a>
+    </div>
+
+    <hr>
+
     <% if (bikes.length === 0) { %>
 
-        <p>No bikes available at the moment.</p>
+        <p>No bikes found for this category.</p>
 
     <% } else { %>
 
