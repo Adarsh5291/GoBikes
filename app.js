@@ -3,6 +3,8 @@ const dotenv = require("dotenv");
 const connectDB = require("./config/db");
 const errorHandler = require("./middleware/errorHandler");
 const bikeRoutes = require("./routes/bikeRoutes");
+const authRoutes = require("./routes/authRoutes");
+const session = require("express-session");
 
 dotenv.config();
 
@@ -15,6 +17,18 @@ connectDB();
 app.set("view engine", "ejs");
 
 app.use(express.static("public"));
+
+app.use(
+    session({
+        secret: process.env.SESSION_SECRET,
+        resave: false,
+        saveUninitialized: false
+    })
+);
+
+app.use(express.urlencoded({ extended: true }));
+
+app.use("/", authRoutes);
 
 app.get("/", (req, res) => {
     res.render("home");
