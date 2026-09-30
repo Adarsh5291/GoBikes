@@ -25,7 +25,9 @@ const loginUser = async (req, res) => {
 
     req.session.userId = user._id;
 
-    res.send("Login successful");
+    const redirectTo = req.query.returnTo || "/dashboard";            //////////////////
+
+    res.redirect(redirectTo);
 };
 
 const logoutUser = (req, res) => {
@@ -36,6 +38,16 @@ const logoutUser = (req, res) => {
 
         res.redirect("/login");
     });
+};
+
+const showDashboard = async (req, res) => {
+    const user = await User.findById(req.session.userId);
+
+    if (!user) {
+        return res.status(404).send("User not found");
+    }
+
+    res.render("dashboard", { user });
 };
 
 const showRegisterForm = (req, res) => {
@@ -69,5 +81,6 @@ module.exports = {
     registerUser,
     showLoginForm,
     loginUser,
-    logoutUser
+    logoutUser,
+    showDashboard
 };

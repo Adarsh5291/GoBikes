@@ -6,14 +6,11 @@ const {
     registerUser,
     showLoginForm,
     loginUser,
-    logoutUser
+    logoutUser,
+    showDashboard
 } = require("../controllers/authController");
 
 const router = express.Router();
-
-router.get("/profile", isLoggedIn, (req, res) => {
-    res.send("You are logged in");
-});
 
 router.get("/register", showRegisterForm);
 router.post("/register", wrapAsync(registerUser));
@@ -22,5 +19,7 @@ router.get("/login", showLoginForm);
 router.post("/login", wrapAsync(loginUser));
 
 router.post("/logout", logoutUser);
+
+router.get("/dashboard", isLoggedIn, showDashboard);
 
 module.exports = router;

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - Rathika</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <h1>Welcome, <%= user.name %>!</h1>
+
+    <h2>Your Account</h2>
+
+    <p>Email: <%= user.email %></p>
+
+    <p>Role: <%= user.role %></p>
+
+    <br>
+
+    <a href="/bikes">Browse Bikes</a>
+
+    <br><br>
+
+    <form action="/logout" method="POST">
+        <button type="submit">Logout</button>
+    </form>
+
+</body>
+</html>
